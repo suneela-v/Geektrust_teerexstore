@@ -33,7 +33,7 @@ function App() {
   const [total, setTotal] = useState(0);
   const [cartcount, setCartcount] = useState(0);  
   const handleChange = (e) => {
-    const { name, value, checked } = e.target;
+    const { name, value} = e.target;
     if (!intersted.includes(value)) {
       setIntersted((prev) => {
         let newprev = [...prev, value];
@@ -85,8 +85,8 @@ function App() {
     setData((prev) => {
       let newdata = data
         .map((item) => {
-          if (item[name] == value) {
-            if (item.matchobj[name] == false) {
+          if (item[name] === value) {
+            if (item.matchobj[name] === false) {
               return {
                 ...item,
                 matchobj: { ...item.matchobj, [name]: value },
@@ -142,6 +142,7 @@ function App() {
       price: [...new Set(shirts.map((item) => item.price))],
     });
     setLoading(false);
+    console.log(initialcart);
   };
   const handleTotal = (newcart) => {
     setCartProducts(newcart.filter((q) => q.quantity > 0));
@@ -157,7 +158,7 @@ function App() {
   const handleQuantity = (idhere, action) => {
     setData((prev) => {
       let newdata = data.map((product) => {
-        if (product.id == idhere) {
+        if (product.id === idhere) {
           if (action === "inc") {
             return {
               ...product,

@@ -30,7 +30,7 @@ const Home = ({
               return (
                 interstednames?.filter((a) => {
                   return item.matchobj[a] !== false;
-                }).length == interstednames.length
+                }).length === interstednames.length
               );
             })
             .map((product) => (

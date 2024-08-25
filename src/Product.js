@@ -1,11 +1,11 @@
 
 const Product = ({ product, handleCart, handleQuantity }) => {
-  const { id, price, quantity, name, originalquantity ,color} = product;
+  const { id, price, quantity, name, originalquantity} = product;
   return (
     <>
       <div className="card" style={{ border: "1px solid red", margin: "2px" }}>
         <div class="card-body" >
-          <img
+          <img alt="placeholder"
             src={`https://placehold.co/50x50/black/white?text=${name}`}
             style={
               {                

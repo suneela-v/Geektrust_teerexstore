@@ -11,7 +11,7 @@ const Cart = ({ cartProducts, total, handleDelete, handleCheckout }) => {
                   <tr>
                     {" "}
                     <td style={{ padding: "10px" }}>
-                      <img src={`https://placehold.co/50x50?text=${name}`} />
+                      <img alt="placeholder" src={`https://placehold.co/50x50?text=${name}`} />
                     </td>
                     <td style={{ padding: "10px" }}>{name}</td>
                     <td style={{ padding: "10px" }}>{price}</td>
