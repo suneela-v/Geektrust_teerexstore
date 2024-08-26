@@ -31,9 +31,9 @@ function App() {
   const [initialcart, setInitialcart] = useState([]);
   const [cartProducts, setCartProducts] = useState([]);
   const [total, setTotal] = useState(0);
-  const [cartcount, setCartcount] = useState(0);  
+  const [cartcount, setCartcount] = useState(0);
   const handleChange = (e) => {
-    const { name, value} = e.target;
+    const { name, value } = e.target;
     if (!intersted.includes(value)) {
       setIntersted((prev) => {
         let newprev = [...prev, value];
@@ -47,17 +47,8 @@ function App() {
     }
 
     if (!interstednames.includes(name)) {
-       setInterstednames([...interstednames, name]);
+      setInterstednames([...interstednames, name]);
     }
-    //if intersted is not having values of particular name we can remove that name from intersted names
-    //values.colors.filter(item => intersted.includes(item))
-    //if that arr length is 0 we can remove that name from interstednames
-    // else {
-    // console.log(intersted,interstednames, "if interstedname included");
-    //  console.log(values[name].map((item) => intersted.includes(item)));
-
-    // }
-
     if (selectedvalues[name].includes(value)) {
       setSelectedvalues((prev) => {
         let newprev = {
@@ -69,7 +60,7 @@ function App() {
       });
       if (selectedvalues[name].length === 1) {
         setInterstednames((prev) => {
-          let newprev = prev.filter((interstedname) => interstedname !== name);         
+          let newprev = prev.filter((interstedname) => interstedname !== name);
           return newprev;
         });
       }
@@ -83,27 +74,26 @@ function App() {
       });
     }
     setData((prev) => {
-      let newdata = data
-        .map((item) => {
-          if (item[name].toString() === value) {
-            if (item.matchobj[name] === false) {
-              return {
-                ...item,
-                matchobj: { ...item.matchobj, [name]: value },
-              };
-            } else {
-              return {
-                ...item,
-                matchobj: {
-                  ...item.matchobj,
-                  [name]: false,
-                },
-              };
-            }
+      let newdata = data.map((item) => {
+        if (item[name].toString() === value) {
+          if (item.matchobj[name] === false) {
+            return {
+              ...item,
+              matchobj: { ...item.matchobj, [name]: value },
+            };
+          } else {
+            return {
+              ...item,
+              matchobj: {
+                ...item.matchobj,
+                [name]: false,
+              },
+            };
           }
+        }
 
-          return item;
-        });
+        return item;
+      });
       return newdata;
     });
   };
@@ -172,7 +162,7 @@ function App() {
         }
         return product;
       });
-       return newdata;
+      return newdata;
     });
     setInitialcart((pre) => {
       let newcart = pre?.map((product) => {
@@ -234,7 +224,7 @@ function App() {
           };
         }
         return product;
-      });      
+      });
       handleTotal(newcart);
       setCartcount(newcart.filter((q) => q.quantity > 0).length);
       return newcart;
