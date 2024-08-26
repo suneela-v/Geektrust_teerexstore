@@ -85,7 +85,7 @@ function App() {
     setData((prev) => {
       let newdata = data
         .map((item) => {
-          if (item[name] === value) {
+          if (item[name].toString() === value) {
             if (item.matchobj[name] === false) {
               return {
                 ...item,
